@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cslihxdq43tv"]
+
+[ext_resource type="Script" path="res://PlayerSprite.gd" id="1_afoag"]
+
+[node name="PlayerSprite" type="Node2D"]
+script = ExtResource("1_afoag")
+skin_color = 1
+has_mouth = true
+pant_style = 18
+hair_style = 8

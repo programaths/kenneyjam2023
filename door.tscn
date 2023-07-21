@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://4ww6r2vq61x"]
+
+[ext_resource type="Script" path="res://Door.gd" id="1_fpe4a"]
+[ext_resource type="Texture2D" uid="uid://chodp14ymh1lx" path="res://roguelikeSheet_transparent.png" id="2_djknx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3duc"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51gv0"]
+size = Vector2(18, 18)
+
+[node name="Door" type="StaticBody2D" groups=["doors"]]
+script = ExtResource("1_fpe4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k3duc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_djknx")
+region_enabled = true
+region_rect = Rect2(612, 17, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_51gv0")

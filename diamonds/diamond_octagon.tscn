@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4jusyn3olsj"]
+
+[ext_resource type="PackedScene" uid="uid://boudvcohxym21" path="res://diamonds/diamond.tscn" id="1_0cwu3"]
+[ext_resource type="Texture2D" uid="uid://dxtmhbn616oh0" path="res://diamonds/tileGrey_06.png" id="2_jxg4c"]
+
+[node name="diamond" instance=ExtResource("1_0cwu3")]
+type = 2
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_jxg4c")

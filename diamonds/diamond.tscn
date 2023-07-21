@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://boudvcohxym21"]
+
+[ext_resource type="Script" path="res://diamonds/diamond.gd" id="1_648dc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6kwo"]
+size = Vector2(4, 4)
+
+[node name="diamond" type="Area2D"]
+script = ExtResource("1_648dc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.063, 0.063)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j6kwo")
