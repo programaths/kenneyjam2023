@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var player_sprite = $PlayerSprite
+
 var inventory={}
 
 signal item_added(player,item_type)
@@ -12,6 +14,21 @@ var cap=1
 var carry_count=0
 
 signal cap_changed(new_cap)
+
+func _ready():
+	player_sprite.hair_color=Globals.hair_color
+
+	player_sprite.hair_style=Globals.hair_style
+
+	player_sprite.top_style=Globals.top_style
+
+	player_sprite.pant_style=Globals.pant_style
+
+	player_sprite.helmet_style=Globals.helmet_style
+
+	player_sprite.skin_color=Globals.skin_color
+
+	player_sprite.has_mouth=Globals.has_mouth
 
 func _physics_process(_delta):
 	velocity=Input.get_vector("left","right","up","down")*128

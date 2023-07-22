@@ -4,7 +4,7 @@ extends Node
 @onready var tile_map = $TileMap
 @onready var label = $CanvasLayer/HBoxContainer/Label
 
-
+const congrat=preload("res://congratulations.tscn")
 
 const sprites=[preload("res://diamonds/tileGrey_04.png"), preload("res://diamonds/tileGrey_05.png"), preload("res://diamonds/tileGrey_06.png"), preload("res://diamonds/tileGrey_07.png"), preload("res://diamonds/tileGrey_08.png"), preload("res://diamonds/tileGrey_09.png"), preload("res://diamonds/tileGrey_10.png"), preload("res://diamonds/tileGrey_11.png"), preload("res://diamonds/tileGrey_12.png")]
 const diamonds=[
@@ -73,3 +73,9 @@ func remove_first_item_of_type(type):
 
 func show_door_requirements():
 	pass
+
+
+func _on_area_2d_2_body_entered(body):
+	if body.has_method("reward"):
+		get_tree().change_scene_to_packed(congrat)
+

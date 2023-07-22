@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c74m2jbkiwldy"]
+[gd_scene load_steps=20 format=3 uid="uid://c74m2jbkiwldy"]
 
 [ext_resource type="Texture2D" uid="uid://chodp14ymh1lx" path="res://roguelikeSheet_transparent.png" id="1_d7x22"]
 [ext_resource type="PackedScene" uid="uid://cm84iydmer27s" path="res://player.tscn" id="2_m6hh4"]
@@ -5568,6 +5568,9 @@ bg_color = Color(0.0823529, 0.0823529, 0.0823529, 0.564706)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ia1y2"]
+size = Vector2(288, 112)
+
 [node name="Node" type="Node"]
 script = ExtResource("2_tdacn")
 
@@ -6058,3 +6061,12 @@ position = Vector2(536, 728)
 
 [node name="diamond5" parent="." instance=ExtResource("4_jqig4")]
 position = Vector2(632, 680)
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(544, 864)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-8, 24)
+shape = SubResource("RectangleShape2D_ia1y2")
+
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

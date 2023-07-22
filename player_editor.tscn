@@ -1,0 +1,109 @@
+[gd_scene load_steps=3 format=3 uid="uid://utf4acroyvgw"]
+
+[ext_resource type="Script" path="res://player_editor.gd" id="1_jorjg"]
+[ext_resource type="PackedScene" uid="uid://cslihxdq43tv" path="res://player_sprite.tscn" id="1_mqtjl"]
+
+[node name="PlayerEditor" type="Node"]
+script = ExtResource("1_jorjg")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="Label" type="Label" parent="Control/GridContainer"]
+layout_mode = 2
+text = "Hair color:"
+
+[node name="SpinHairColor" type="SpinBox" parent="Control/GridContainer"]
+layout_mode = 2
+max_value = 4.0
+
+[node name="Label2" type="Label" parent="Control/GridContainer"]
+layout_mode = 2
+text = "Hair style:"
+
+[node name="SpinHairStyle" type="SpinBox" parent="Control/GridContainer"]
+layout_mode = 2
+max_value = 15.0
+
+[node name="Label3" type="Label" parent="Control/GridContainer"]
+layout_mode = 2
+text = "Skin:"
+
+[node name="OptionSkin" type="OptionButton" parent="Control/GridContainer"]
+layout_mode = 2
+item_count = 4
+popup/item_0/text = "ligh"
+popup/item_0/id = 0
+popup/item_1/text = "middle"
+popup/item_1/id = 1
+popup/item_2/text = "dark"
+popup/item_2/id = 2
+popup/item_3/text = "green"
+popup/item_3/id = 3
+
+[node name="Label4" type="Label" parent="Control/GridContainer"]
+layout_mode = 2
+text = "Mouth:"
+
+[node name="CheckBoxMouth" type="CheckBox" parent="Control/GridContainer"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="Control/GridContainer"]
+layout_mode = 2
+text = "Top:"
+
+[node name="SpinBoxTop" type="SpinBox" parent="Control/GridContainer"]
+layout_mode = 2
+max_value = 120.0
+
+[node name="Label6" type="Label" parent="Control/GridContainer"]
+layout_mode = 2
+text = "Pant:"
+
+[node name="SpinPant" type="SpinBox" parent="Control/GridContainer"]
+layout_mode = 2
+max_value = 20.0
+
+[node name="Label7" type="Label" parent="Control/GridContainer"]
+layout_mode = 2
+text = "Helmet:"
+
+[node name="SpinHelmet" type="SpinBox" parent="Control/GridContainer"]
+layout_mode = 2
+max_value = 35.0
+
+[node name="Control" type="Control" parent="Control/GridContainer"]
+layout_mode = 2
+
+[node name="ButtonStart" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+text = "Start game"
+
+[node name="PlayerSprite" parent="." instance=ExtResource("1_mqtjl")]
+position = Vector2(32, 72)
+scale = Vector2(5, 5)
+
+[connection signal="value_changed" from="Control/GridContainer/SpinHairColor" to="." method="_on_spin_hair_color_value_changed"]
+[connection signal="value_changed" from="Control/GridContainer/SpinHairStyle" to="." method="_on_spin_hair_style_value_changed"]
+[connection signal="item_selected" from="Control/GridContainer/OptionSkin" to="." method="_on_option_skin_item_selected"]
+[connection signal="toggled" from="Control/GridContainer/CheckBoxMouth" to="." method="_on_check_box_mouth_toggled"]
+[connection signal="value_changed" from="Control/GridContainer/SpinBoxTop" to="." method="_on_spin_box_top_value_changed"]
+[connection signal="value_changed" from="Control/GridContainer/SpinPant" to="." method="_on_spin_pant_value_changed"]
+[connection signal="value_changed" from="Control/GridContainer/SpinHelmet" to="." method="_on_spin_helmet_value_changed"]
+[connection signal="pressed" from="Control/GridContainer/ButtonStart" to="." method="_on_button_start_pressed"]

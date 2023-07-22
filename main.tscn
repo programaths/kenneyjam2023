@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl2m6udqn0sdg"]
+
+[sub_resource type="GDScript" id="GDScript_wb6nk"]
+script/source = "extends Button
+
+const editor=preload(\"res://player_editor.tscn\")
+
+func _on_pressed():
+	get_tree().change_scene_to_packed(editor)
+"
+
+[node name="Main" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Gewel amazing maze"
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "START"
+script = SubResource("GDScript_wb6nk")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
